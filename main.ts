@@ -92,8 +92,7 @@ class Gfx {
 
 
 
-let gfx = new Gfx(document.getElementById("canvas") as HTMLCanvasElement)
-
+let gfx = new Gfx(document.getElementById("canvas") as HTMLCanvasElement);
 // constants used in the mocked code
 const SCREEN_HEIGHT = gfx.height;
 const SCREEN_WIDTH = gfx.width;
@@ -101,8 +100,8 @@ const MINI_BLACK = "black";
 const MINI_WHITE = "white";
 const ArialMT_Plain_10: Font = [10, "Arial"];
 const ArialMT_Plain_24: Font = [24, "Arial"];
-const Meteocons_Plain_21: Font = [21 * 0.8, "Webdings"];
-const Meteocons_Plain_42: Font = [42 * 0.8, "Webdings"];
+const Meteocons_Plain_21: Font = [21 * 0.8 , "Arial  "];
+const Meteocons_Plain_42: Font = [42 * 0.9, "Arial"];
 const TEXT_ALIGN_CENTER = "center";
 const TEXT_ALIGN_LEFT = "left";
 const TEXT_ALIGN_RIGHT = "right";
@@ -130,7 +129,7 @@ function drawForecastDetail(x, y, index) {
     gfx.setColor(MINI_BLACK);
     gfx.drawString(x + 23, y + 15, Math.floor(10 + Math.random() * 30) + "°|" + Math.floor(10 + Math.random() * 30) + "°");    // temp PoP
     gfx.setFont(Meteocons_Plain_21)
-    let weatherIcon = "E"
+    let weatherIcon = index % 2 == 0 ? "❄" : "☼";
     gfx.drawString(x + 25, y + 29, weatherIcon);
     gfx.drawLine(x + 2, y, x + 2, y + 51);
     gfx.drawLine(x + 2, y + 13, x + 43, y + 13);
@@ -196,7 +195,7 @@ function drawMiscText() {
     gfx.setColor(MINI_BLACK);
     gfx.setTextAlignment(TEXT_ALIGN_LEFT);
     gfx.setFont(Meteocons_Plain_42);
-    gfx.drawString(10, 15, "E");
+    gfx.drawString(10, 15, Math.random() > 0.95 ? "❄" : "☼");
 
 
     gfx.setTextAlignment(TEXT_ALIGN_RIGHT);

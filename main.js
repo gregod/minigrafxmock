@@ -75,8 +75,8 @@ var MINI_BLACK = "black";
 var MINI_WHITE = "white";
 var ArialMT_Plain_10 = [10, "Arial"];
 var ArialMT_Plain_24 = [24, "Arial"];
-var Meteocons_Plain_21 = [21 * 0.8, "Webdings"];
-var Meteocons_Plain_42 = [42 * 0.8, "Webdings"];
+var Meteocons_Plain_21 = [21 * 0.8, "Arial  "];
+var Meteocons_Plain_42 = [42 * 0.9, "Arial"];
 var TEXT_ALIGN_CENTER = "center";
 var TEXT_ALIGN_LEFT = "left";
 var TEXT_ALIGN_RIGHT = "right";
@@ -101,7 +101,7 @@ function drawForecastDetail(x, y, index) {
     gfx.setColor(MINI_BLACK);
     gfx.drawString(x + 23, y + 15, Math.floor(10 + Math.random() * 30) + "°|" + Math.floor(10 + Math.random() * 30) + "°"); // temp PoP
     gfx.setFont(Meteocons_Plain_21);
-    var weatherIcon = "E";
+    var weatherIcon = index % 2 == 0 ? "❄" : "☼";
     gfx.drawString(x + 25, y + 29, weatherIcon);
     gfx.drawLine(x + 2, y, x + 2, y + 51);
     gfx.drawLine(x + 2, y + 13, x + 43, y + 13);
@@ -156,7 +156,7 @@ function drawMiscText() {
     gfx.setColor(MINI_BLACK);
     gfx.setTextAlignment(TEXT_ALIGN_LEFT);
     gfx.setFont(Meteocons_Plain_42);
-    gfx.drawString(10, 15, "E");
+    gfx.drawString(10, 15, Math.random() > 0.95 ? "❄" : "☼");
     gfx.setTextAlignment(TEXT_ALIGN_RIGHT);
     gfx.setFont(ArialMT_Plain_10);
     gfx.drawString(125, 15, "München");
